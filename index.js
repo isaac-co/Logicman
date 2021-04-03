@@ -1,15 +1,20 @@
 const express = require('express')
-var session = require('express-session');
+const session = require('express-session');
 const path = require('path')
 const bodyParser = require('body-parser')
-var mysql = require('mysql');
+const mysql = require('mysql');
 
 // DB Login
-var connection = mysql.createConnection({
-	host     : 'localhost',
-	user     : 'root',
-	password : '',
-	database : 'nodelogin'
+const connection = mysql.createConnection({
+	host     : 'svr3.educationhost.cloud',
+	user     : 'yfulimcs_aec',
+	password : 'Aec123',
+	database : 'yfulimcs_logicman'
+});
+
+connection.connect(function(err) {
+	if (err) throw err;
+	console.log("Connected!");
 });
 
 // Crear el servidor
@@ -65,8 +70,14 @@ app.get('/relogin', (req,res)=>{
 
 // ======================= AUTHENTICATION ======================= //
 app.post('/auth', function(req, res) {
-	var username = req.body.loginUser;
-	var password = req.body.loginPass;
+	const username = req.body.loginUser;
+	const password = req.body.loginPass;
+
+	if (connection.state === 'disconnected'){
+		console.log("db down");
+		return;
+	}
+
 	connection.query('SELECT * FROM accounts WHERE username = ? AND password = ?', [username, password], function(error, results, fields) {
 			if (results.length > 0) {
 				req.session.loggedin = true;
