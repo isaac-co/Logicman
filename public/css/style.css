@@ -1,0 +1,238 @@
+@import url("https://fonts.googleapis.com/css?family=Barlow|Tomorrow:400,700&display=swap");
+
+@font-face {
+	font-family: 'thaleahfatmedium';
+	src: url('thaleahfat_ttf-webfont.woff2') format('woff2'),
+			 url('thaleahfat_ttf-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+
+}
+
+/*
+Color wheel: cyan-complementary
+cyan: #00ffff
+orange: #ff8000
+red: #ff0000
+
+color wheel: cyan-mono
+darker-cyan: #2ee6e6
+*/
+
+body {
+  background: black;
+	/* change overflow style */
+  margin: 0;
+  font-family: Tomorrow, sans-serif;
+}
+
+/* Header */
+hr {
+  border:none;
+  height: 20px;
+ 	width: 90%;
+	height: 50px;
+	margin-top: 0;
+	border-bottom: 1px solid cyan;
+	box-shadow: 0 20px 20px -20px aqua;
+  margin: -50px auto 10px; 
+}
+
+.header {
+  overflow: hidden;
+  background-color: black;
+  padding: 7px 10px;
+}
+
+.header a {
+  float: left;
+  color: white;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px; 
+  line-height: 20px;
+  border-radius: 4px;
+	font-weight: bold;
+}
+
+.header a.logo {
+  font-size: 45px;
+	font-family: thaleahfatmedium;
+  font-weight: bold;
+}
+
+.header a.logo:hover {
+	color:#ff8000;
+	text-underline-position: auto;
+}
+
+.header a:hover {
+  color: #2ee6e6;
+  text-decoration: underline;
+  text-underline-position: under;
+}
+
+.header a.active {
+  color: aqua;
+}
+
+.header a.active:hover {
+  color: #2ee6e6;
+}
+
+.header-right {
+  float: right;
+}
+
+@media screen and (max-width: 500px) {
+  .header a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  
+  .header-right {
+    float: none;
+  }
+}
+
+/* Board */ 
+.welcome-msg {
+	border: 2px solid lightcyan;
+	box-shadow: 0 0 20px cyan;
+	margin: 5em auto;
+	width: 80%;
+	padding: 2em;
+	background-color: rgba(0, 220, 255, 0.2);
+	border-radius: 0 100px 0 100px;
+}
+.welcome-msg h1, h2, h3, #tit1 {
+	text-shadow: 0 0 10px cyan;
+	color: lightcyan;
+	text-align: center;
+	font-family: Tomorrow, sans-serif;
+}
+
+.welcome-msg p {
+	text-shadow: 0 0 10px cyan;
+	color: lightcyan;
+	text-align: center;
+	font-family: 'Source Code Pro', monospace;
+	line-height: 40px;
+	
+}
+
+.buttons {
+	display: block;
+	position: relative;
+	width: 80%;
+	margin: auto;
+	padding: 2em;
+}
+
+.buttons .left {
+	position: absolute;
+	left: 0;
+	text-align: center;
+}
+
+.buttons .right {
+	right: 0;
+	position: absolute;
+	text-align: center;
+}
+
+.buttons .center {
+	display: flex;
+	justify-content: center;
+	text-align: center;
+}
+
+.buttons button {
+	background: lightcyan;
+	box-shadow: 0 0 20px cyan;
+	border: 2px solid lightcyan;
+	background-color: rgba(0, 220, 255, 0.2);
+	text-shadow: 0 0 10px cyan;
+	color: lightcyan; 
+	padding: 10px 30px;
+	transition: all ease-out 200ms;
+}
+
+.buttons button:active {
+	background: lightcyan;
+	box-shadow: 0 0 10px cyan;
+	border: 3px solid white;
+	background-color: rgba(0, 220, 255, 0.5);
+	text-shadow: 0 0 5px cyan;
+	font-weight: bold;
+	transition: all ease-in 200ms;
+}
+
+.buttons button:focus {
+	background: lightcyan;
+	box-shadow: 0 0 10px cyan;
+	border: 3px solid white;
+	background-color: rgba(0, 220, 255, 0.5);
+	text-shadow: 0 0 5px cyan;
+	font-weight: bold;
+	transition: all ease-in 200ms;
+}
+
+/* Foorms */
+
+.login-form {
+	text-shadow: 0 0 10px cyan;
+	color: lightcyan;
+	text-align: left;
+	font-family: Tomorrow, sans-serif;
+}
+
+.form-control {
+  color: gray;
+  background-color: rgb(8, 8, 1);
+}
+
+.form-control:focus {
+  color: lightcyan;
+  background-color: rgb(8, 8, 1);
+	box-shadow: 0 0 5px #ff8000;
+  border: 1px solid #ff8000;
+}
+
+/* Table */
+.table {
+	color: white;
+}
+
+tr:hover td {
+	color: #ff8000;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 2px grey;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2ee6e6;
+  border-radius: 5;
+}
+
+/* Graph */
+#graphContainer p {
+color: white;
+text-align: center;
+}
+
+#graphContainer canvas {
+	margin-left: auto;
+	margin-right: auto;
+	border: 1px solid #ffffff;	
+}

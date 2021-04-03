@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+    <head>
+    <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="/css/style.css">
+        <title>Logicman</title>
+    </head>
+    <header>
+      <div class="header">
+        <a href="/" class="logo">Logicman</a>
+        <div class="header-right">
+          <a class="active" href="/">Home</a>
+          <a href="form">Regístrate</a>
+          <a href="login">Iniciar sesión</a>
+        </div>
+      </div>
+      <hr>      
+    </header>
+    <br> <br>
+    <body>
+      <div class="container-fluid">
+        <div id="app">
+          <div class="welcome-msg">
+            <h1>¡Regístrate!</h1>
+            <br>
+              <div class="login-form">
+                <form method="GET" id="signForm">
+                  <div class="row mb-3">
+                    <div class="col-sm-6">
+                      <label for="firstName" class="form-label">Nombre</label>
+                      <input type="text" class="form-control" placeholder="First name" name="fname">
+                    </div>
+                    <div class="col-sm-6">
+                      <label for="lastName" class="form-label">Apellido</label>
+                      <input type="text" class="form-control" placeholder="Last name" name="lname">
+                    </div>
+                  </div>
+                  <div class="row mb-2">
+                    <div class="col-sm-6">
+                      <label for="username" class="form-label">Usuario</label>
+                      <input type="text" class="form-control" placeholder="Username" name="user">
+                    </div>
+                    <div class="col-sm-6">
+                      <label for="password" class="form-label">Contraseña</label>
+                      <input type="password" class="form-control" placeholder="Password" name="pass">
+                    </div>
+                  </div>
+                  <div class="row mb-2">
+                    <div class="col-sm-6">
+                      <label for="birthdate" class="form-label">Fecha de nacimiento</label>
+                      <input type="date" class="form-control" placeholder="Password" name="birth">
+                    </div>
+                    <div class="col-sm-6">
+                      <label for="gender" class="form-label">Género</label>
+                      <select class="form-control"  name="gender">
+                        <option value="F">F</option>
+                        <option value="M">M</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="row mb-2">
+                    <div class="col-sm-6">
+                      <label for="email" class="form-label">Email</label>
+                      <input type="email" class="form-control" placeholder="andrick@mail.com" name="mail">
+                    </div>
+                    <div class="col-sm-6">
+                      <label for="correos" class="form-label">¿Quieres recibir correos de STEM?</label>
+                      <select class="form-control"  name="ifmail">
+                        <option value="true">Sí</option>
+                        <option value="false">No</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="buttons">
+                    <div class="left">
+                      <button onclick="resetForm()" id="resetButton" type="button">RESET</button>
+                    </div>
+                    <div class="right">
+                      <button onclick="validateForm()" id="submitButton" type="button">REGISTRAR</button>
+                    </div>
+                  </div>
+                </form>
+              </div>           
+          </div>
+        </div>
+      </div>
+      <script type='text/javascript' src="/js/funciones.js""></script>
+    </body>
+</html>

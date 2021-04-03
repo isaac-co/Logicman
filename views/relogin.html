@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+    <head>
+    <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="/css/style.css">
+        <title>Logicman</title>
+    </head>
+    <header>
+      <div class="header">
+        <a href="/" class="logo">Logicman</a>
+        <div class="header-right">
+          <a class="active" href="/">Home</a>
+          <a href="form">Regístrate</a>
+          <a href="login">Iniciar sesión</a>
+        </div>
+      </div>
+      <hr>      
+    </header>
+    <br> <br>
+    <body>
+      <div class="container-fluid">
+        <div id="app">
+          <div class="welcome-msg">
+            <h1>Inicia sesión</h1>
+            <p style="text-shadow: 0 0 10px orange; color: darkorange;"> Usuario o contraseña incorrectos. </p>
+            <div class="login-form">
+              <form action="auth" method="POST" id="loginForm">
+                <div class="mb-3">
+                  <label for="loginUser" class="form-label">Usuario</label>
+                  <input type="text" class="form-control" placeholder="Username" id="loginUser" name="loginUser">
+                </div>
+                <div class="mb-3">
+                  <label for="loginPass" class="form-label">Contraseña</label>
+                  <input type="password" class="form-control" placeholder="Password" id="loginPass" name="loginPass">
+                </div>
+              </form>
+            <div class="buttons">
+              <div class="center">
+                <button onclick="validateLogin()" type="button">Iniciar sesión</button>
+              </div>
+            </div>
+            <p>¿Nuevo en Logicman?</p>
+            <div class="buttons" style="padding: 0em;">
+              <div class="center">
+                <button onclick="window.location.href='form'" type="button">Crea tu cuenta</button>
+            </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script type='text/javascript' src="/js/funciones.js""></script>
+    </body>
+</html>
