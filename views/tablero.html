@@ -13,7 +13,7 @@
       <div class="header">
         <a href="/" class="logo">Logicman</a>
         <div class="header-right">
-          <a href="admin">Admin</a>
+          <a href="dashboard">Admin</a>
           <a href="tablero">Usuarios</a>
         </div>
       </div>
@@ -39,76 +39,18 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>mdo</td>
-                    <td>M</td>
-                    <td>9/9/2009</td>
-                    <td>mdo@mail.com</td>
-                    <td>true</td>
+                  <%personas.forEach((persona)=>{%>
+                  <tr>  
+                    <td><%=persona.id%></td>
+                    <td><%=persona.firstName%></td>
+                    <td><%=persona.lastName%></td>
+                    <td><%=persona.username%></td>
+                    <td><%=persona.gender%></td>
+                    <td><%=persona.birthdate%></td>
+                    <td><%=persona.email%></td>
+                    <td><%=persona.receiveMail%></td>
                   </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>fat</td>
-                    <td>M</td>
-                    <td>9/9/2009</td>
-                    <td>fat@mail.com</td>
-                    <td>false</td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>twitter</td>
-                    <td>M</td>
-                    <td>9/9/2009</td>
-                    <td>larry@mail.com</td>
-                    <td>true</td>
-                  </tr>
-                  <tr>
-                    <td>4</td>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>mdo</td>
-                    <td>M</td>
-                    <td>9/9/2009</td>
-                    <td>mdo@mail.com</td>
-                    <td>true</td>
-                  </tr>
-                  <tr>
-                    <td>5</td>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>fat</td>
-                    <td>M</td>
-                    <td>9/9/2009</td>
-                    <td>fat@mail.com</td>
-                    <td>false</td>
-                  </tr>
-                  <tr>
-                    <td>6</td>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>twitter</td>
-                    <td>M</td>
-                    <td>9/9/2009</td>
-                    <td>larry@mail.com</td>
-                    <td>true</td>
-                  </tr>
-                  <tr>
-                    <td>7</td>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>mdo</td>
-                    <td>M</td>
-                    <td>9/9/2009</td>
-                    <td>mdo@mail.com</td>
-                    <td>true</td>
-                  </tr>
+                  <%});%>
                 </tbody>
               </table>
             </div>
