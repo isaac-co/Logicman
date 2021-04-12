@@ -1,9 +1,10 @@
-const express = require('express')
+const express = require('express');
 const session = require('express-session');
-const path = require('path')
-const bodyParser = require('body-parser')
-const adminRoutes = require('./routes/admin')
-const homeRoutes = require('./routes/home')
+const path = require('path');
+const bodyParser = require('body-parser');
+const adminRoutes = require('./routes/admin');
+const homeRoutes = require('./routes/home');
+const userRoutes = require('./routes/usuario');
 const sequelize = require('./util/database');
 
 // Crear el servidor
@@ -27,7 +28,9 @@ app.set('view engine','ejs');
 
 // ======================= RUTAS ======================= //
 app.use('/admin',adminRoutes);
+app.use('/user',userRoutes);
 app.use('/',homeRoutes);
+
 
 const port = 8080;
 sequelize.sync()

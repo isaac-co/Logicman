@@ -3,7 +3,7 @@ const Usuario = require('../models/usuario');
 
 exports.getDashboard = function(req, res) {
 	if (req.session.loggedin) {
-		res.sendFile(path.join(__dirname,'..','views','admin.html'));
+		res.sendFile(path.join(__dirname,'..','views','adminDashboard.html'));
 	} else {
 		res.send('Please login to view this page!');
 	}
@@ -18,7 +18,7 @@ exports.getTablero = function(req, res) {
 				data.push(registro.dataValues);
 			});
 			console.log(data);
-			res.render('tablero.html', {
+			res.render('adminTablero.html', {
 			personas:data,
 			sesion:"Autorizado",
 		});

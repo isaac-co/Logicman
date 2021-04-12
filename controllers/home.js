@@ -48,7 +48,11 @@ exports.postAuth = function(req, res) {
 			req.session.loggedin = true;
 			req.session.username = formUsername;
 			// console.log(req.session.username);
-			res.redirect('/admin/dashboard');
+            if (formUsername == 'admin' && formPassword == 'admin') {
+			    res.redirect('/admin/dashboard');
+            } else {
+                res.redirect('/user/home');
+            }
         } else {
             req.session.loggedin = false;
 			res.redirect('/relogin');
