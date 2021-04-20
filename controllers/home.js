@@ -74,7 +74,7 @@ exports.postVer = function(req, res) {
         if (user != null) {
 			res.send("confirmado")
         } else {
-			res.send("fake");
+			res.send("Intente de nuevo.");
         }
     });
 };

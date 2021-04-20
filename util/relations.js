@@ -8,7 +8,7 @@ function applyRelations(sequelize){
     //Un usuario puede tener muchas sesiones
     Usuario.hasMany(Sesion);
     //Una Jugador solo puede ser asignada a un Usuario
-    Jugador.belongsTo(Usuario);
+    Jugador.belongsTo(Usuario, {foreignKey: 'idUsuario'});
 }
 
 module.exports = {applyRelations};

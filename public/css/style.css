@@ -107,6 +107,7 @@ hr {
 	background-color: rgba(0, 220, 255, 0.2);
 	border-radius: 0 100px 0 100px;
 }
+
 .welcome-msg h1, h2, h3, #tit1 {
 	text-shadow: 0 0 10px cyan;
 	color: lightcyan;
@@ -120,7 +121,25 @@ hr {
 	text-align: center;
 	font-family: 'Source Code Pro', monospace;
 	line-height: 40px;
-	
+}
+
+.welcome-msg ul, li {
+	text-shadow: 0 0 10px cyan;
+	color: lightcyan;
+	text-align: left;
+	font-family: 'Source Code Pro', monospace;
+	line-height: 40px;
+}
+
+.welcome-msg .column {
+	float: left;
+	width: 50%;
+}
+
+.welcome-msg .row:after {
+	content: "";
+	display: table;
+	clear: both;
 }
 
 .buttons {

@@ -8,6 +8,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="/css/style.css">
         <title>Logicman</title>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
     </head>
     <header>
       <div class="header">
@@ -24,7 +25,66 @@
       <div class="container-fluid" style="padding-top: .5cm;">
         <div id="app">
           <div class="welcome-msg">
-            <h1>Bienvenido de vuelta, <%=persona%>!</h1>
+            <h1>Bienvenido de vuelta, <span><h1 style="color: #ff8000; text-shadow: 0 0 10px #ff8000;"><%=nombre%>!</h1></span></h1>
+            <p> Logicman está hecho para evaluar tus aptitues, puedes ver un resumen de lo que has conseguido hasta ahora aquí abajo.</p>
+              <div class="row">
+                <div class="column">
+                  <h2 style="text-align: left;">Aquí están tus estadísticas</h2> <br>
+                  <ul>
+                    <%personas.forEach((persona)=>{%>
+                      <li>Lógica: <%=persona.skill1%></li>
+                      <li>Creatividad: <%=persona.skill2%></li>
+                      <li>Innovación: <%=persona.skill3%></li>
+                      <li>Puzzles resueltos: <%=persona.puzzles%></li>
+                      <li>Horas jugadas: <%=persona.horasJugadas%></li>
+                    <%});%>
+                  </ul>
+                </div>
+                <div class="column">
+                    <h2>Gráfica</h2> <br>
+                    <canvas id="radar-chart" width="600" height="400"></canvas>
+                    <script>
+                    Chart.defaults.global.defaultFontColor = '#FFF';
+                    Chart.defaults.scale.ticks.beginAtZero = true;
+                    Chart.defaults.scale.ticks.max = 10;
+                    Chart.defaults.scale.ticks.display = false;
+                    Chart.defaults.scale.ticks.display = false;
+                    new Chart(document.getElementById("radar-chart"), {
+                        type: 'radar',
+                        data: {
+                          labels: ["Lógica", "Creatividad", "Innovación"],
+                          datasets: [
+                            {
+                              label: "Aptitudes",
+                              fill: true,
+                              backgroundColor: "#2e4259cc",
+                              borderColor: "#fff",
+                              borderWidth: 2,
+                              pointBorderColor: "#fff",
+                              pointBackgroundColor: "#2e4259",
+                              pointHoverRadius: 5,
+                              data: [7.6,5.6,8.7]
+                            }, 
+                          ]
+                        },
+                        options: 
+                        {
+                          scale: {
+                            gridLines: {
+                              color: '#ffffff'
+                            }
+                          },
+                          ticks: {
+                            beginAtZero: false,
+                            max: 10,
+                            min: 1,
+                            stepSize: 1
+                          },  
+                        }
+                    });
+                    </script>
+                </div>
+            </div>
           </div>
         </div>
       </div>
