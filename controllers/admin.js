@@ -1,5 +1,7 @@
 const path = require('path');
-const Usuario = require('../models/usuario');
+const Sequelize = require('sequelize');
+const sequelize = require('../util/database');
+const Usuario = sequelize.models.usuario;
 
 exports.getDashboard = function(req, res) {
 	if (req.session.loggedin) {

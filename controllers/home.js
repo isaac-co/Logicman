@@ -1,5 +1,7 @@
 const path = require('path');
-const Usuario = require('../models/usuario');
+const Sequelize = require('sequelize');
+const sequelize = require('../util/database');
+const Usuario = sequelize.models.usuario;
 // DB
 const connection = require('../util/database');
 
@@ -9,6 +11,10 @@ exports.getIndex = (req,res)=>{
 
 exports.getForm = (req,res)=>{
     res.sendFile(path.join(__dirname,'..','views','form.html'));
+};
+
+exports.getConfirmacion = (req,res)=>{
+    res.sendFile(path.join(__dirname,'..','views','confirmacion.html'));
 };
 
 exports.getLogin = (req,res)=>{
@@ -36,7 +42,7 @@ exports.postAddUser = (req,res)=>{
       .catch(error=>console.log(error));
     
     console.log(formulario);
-    res.redirect("/");
+    res.redirect("/confirmacion");
 };
 
 exports.postAuth = function(req, res) {
