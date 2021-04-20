@@ -1,22 +1,7 @@
-// const mysql = require('mysql');
-
-// // DB Login
-// const connection = mysql.createConnection({
-// 	host     : 'svr3.educationhost.cloud',
-// 	user     : 'yfulimcs_aec',
-// 	password : 'Aec123',
-// 	database : 'yfulimcs_logicman'
-// });
-
-// connection.connect(function(err) {
-// 	if (err) throw err;
-// 	console.log("Database connection successful.");
-// });
-
-// module.exports = connection;
+const Sequelize = require('sequelize');
+const {applyRelations} = require('./relations');
 
 // Configuración de sequelize
-const Sequelize = require('sequelize');
 const sequelize = new Sequelize('yfulimcs_logicman','yfulimcs_aec','Aec123',{
     host: 'svr3.educationhost.cloud',
 	dialect: 'mysql',
@@ -25,6 +10,20 @@ const sequelize = new Sequelize('yfulimcs_logicman','yfulimcs_aec','Aec123',{
         freezeTableName: true
     }
 });
+
+//cargar los modelos
+const modelDefiners = [
+    require('../models/jugador'),
+    require('../models/usuario'),
+    require('../models/sesion'),
+];
+
+//Vincular el objeto de conexión con los modelos
+for(const modelDefiner of modelDefiners){
+    modelDefiner(sequelize);
+}
+//Construir las relaciones
+applyRelations(sequelize);
 
 // Exportando el objeto sequelize
 module.exports = sequelize;

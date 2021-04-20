@@ -7,6 +7,8 @@ router.get('/',homeController.getIndex);
 
 router.get('/form',homeController.getForm);
 
+router.get('/confirmacion',homeController.getConfirmacion);
+
 router.get('/login',homeController.getLogin);
 
 router.get('/relogin',homeController.getRelogin);
