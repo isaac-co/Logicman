@@ -66,4 +66,15 @@ exports.postAuth = function(req, res) {
     });
 };
 
+exports.postVer = function(req, res) {
+	const formUsername = req.body.nombre;
+	const formPassword = req.body.contra;
 
+	Usuario.findOne({where: {email: formUsername, userPassword: formPassword}}).then(user=>{
+        if (user != null) {
+			res.send("confirmado")
+        } else {
+			res.send("fake");
+        }
+    });
+};

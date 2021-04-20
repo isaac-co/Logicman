@@ -17,4 +17,6 @@ router.post('/addUser',homeController.postAddUser);
 
 router.post('/auth',homeController.postAuth);
 
+router.post('/postVer', homeController.postVer);
+
 module.exports = router;
