@@ -21,4 +21,6 @@ router.post('/auth',homeController.postAuth);
 
 router.post('/postVer', homeController.postVer);
 
+router.post('/postActualizarJugador', homeController.postActualizarJugador);
+
 module.exports = router;

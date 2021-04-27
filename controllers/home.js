@@ -2,6 +2,7 @@ const path = require('path');
 const Sequelize = require('sequelize');
 const sequelize = require('../util/database');
 const Usuario = sequelize.models.usuario;
+const Jugador = sequelize.models.jugador;
 // DB
 const connection = require('../util/database');
 
@@ -82,3 +83,25 @@ exports.postVer = function(req, res) {
         }
     });
 };
+
+exports.postActualizarJugador = (req,res)=>{
+    console.log(req.query);
+    let id;
+    Usuario.findOne({where: {email: req.query.usuario, userPassword: req.query.contra}})
+    .then(user=>{
+        id = user.id;
+        Jugador.findByPk(id)
+            .then(jugador=>
+            {
+                jugador.skill1 = req.query.datos1;
+                jugador.skill2 = req.query.datos2;
+                jugador.skill3 = req.query.datos3;
+                return jugador && jugador.save();
+            })
+                .then(resultado=>
+                {
+                    console.log("Datos guardadots")
+                    console.log(resultado)
+                })
+    });
+}
