@@ -64,7 +64,7 @@
                     labels: ['Interesados', 'No interesados'],
                     datasets: [{
                         label: 'Edades',
-                        data: [12, 19],
+                        data: [<%=interesados%>],
                         backgroundColor: [
                             'rgba(188, 80, 144, 0.2)',
                             'rgba(255, 206, 86, 0.2)',
@@ -100,7 +100,7 @@
                     labels: ['Mujer', 'Hombre'],
                     datasets: [{
                         label: 'Número de personas por género',
-                        data: [<%=interesados%>],
+                        data: [<%=interesadosGenero%>],
                         backgroundColor: [
                             'rgba(75, 192, 192, 0.2)',
                             'rgba(255, 159, 64, 0.2)',

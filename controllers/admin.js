@@ -7,6 +7,7 @@ exports.getDashboard = function(req, res) {
 	if (req.session.loggedin) {
 		var genero = new Array;
 		var interesados = new Array;
+		var interesadosGenero = new Array;
 		var ages = new Array;
 		var freq = new Array;
 
@@ -18,8 +19,14 @@ exports.getDashboard = function(req, res) {
 
 		sequelize.query("CALL getInteresados();")
         .then(registros=>{
-            interesados.push(registros[0].Mujeres);
-            interesados.push(registros[0].Hombres);	
+            interesados.push(registros[0].Interesados);
+            interesados.push(registros[0].NoInteresados);	
+        })
+
+		sequelize.query("CALL getInteresadosGenero();")
+        .then(registros=>{
+            interesadosGenero.push(registros[0].Mujeres);
+            interesadosGenero.push(registros[0].Hombres);	
         })
 
 		sequelize.query("CALL getEdades();")
@@ -35,6 +42,7 @@ exports.getDashboard = function(req, res) {
 			res.render('adminDashboard.html', {
 				"genero":genero,
 				"interesados":interesados,
+				"interesadosGenero":interesadosGenero,
 				"freq":freq,
 				"ages":ages,
 			})
