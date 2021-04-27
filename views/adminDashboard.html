@@ -22,7 +22,6 @@
     </header>
     <br> <br>
     <body>
-      <%=equisde%>
       <div id="graphContainer" class="container" style="justify-content: space-around;">
         <div class="row">
           <div class="col">
@@ -36,7 +35,7 @@
                     labels: ['Mujer', 'Hombre'],
                     datasets: [{
                         label: 'Número de personas por género',
-                        data: equisde,
+                        data: [<%=genero%>],
                         backgroundColor: [
                             'rgba(255, 99, 132, 0.2)',
                             'rgba(54, 162, 235, 0.2)',
@@ -55,24 +54,24 @@
             </script>
           </div>
           <div class="col">
-            <p>Gráfica 2</p>
+            <p>Interesados en STEAM</p>
             <canvas id="myChart2" width="300" height="300"></canvas>
             <script>
             const cty = document.getElementById('myChart2').getContext('2d');
             const myChart2 = new Chart(cty, {
                 type: 'bar',
                 data: {
-                    labels: ['Mujer', 'Hombre'],
+                    labels: ['Interesados', 'No interesados'],
                     datasets: [{
                         label: 'Edades',
                         data: [12, 19],
                         backgroundColor: [
-                            'rgba(255, 99, 132, 0.2)',
-                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(188, 80, 144, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
                         ],
                         borderColor: [
-                            'rgba(255, 99, 132, 1)',
-                            'rgba(54, 162, 235, 1)',
+                            'rgba(188, 80, 144, 1)',
+                            'rgba(255, 206, 86, 1)',
                         ],
                         borderWidth: 1
                     }]
@@ -101,7 +100,7 @@
                     labels: ['Mujer', 'Hombre'],
                     datasets: [{
                         label: 'Número de personas por género',
-                        data: [12, 19],
+                        data: [<%=interesados%>],
                         backgroundColor: [
                             'rgba(75, 192, 192, 0.2)',
                             'rgba(255, 159, 64, 0.2)',
@@ -129,25 +128,27 @@
               var myChart4 = new Chart(ctxx, {
                   type: 'bar',
                   data: {
-                      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                      labels: [<%=ages%>],
                       datasets: [{
                           label: '# of Votes',
-                          data: [12, 19, 3, 5, 2, 3],
+                          data: [<%=freq%>],
                           backgroundColor: [
-                              'rgba(255, 99, 132, 0.2)',
-                              'rgba(54, 162, 235, 0.2)',
-                              'rgba(255, 206, 86, 0.2)',
-                              'rgba(75, 192, 192, 0.2)',
-                              'rgba(153, 102, 255, 0.2)',
-                              'rgba(255, 159, 64, 0.2)'
+                              'rgba(72, 143, 49, 0.2)',
+                              'rgba(139, 163, 58, 0.2)',
+                              'rgba(199, 182, 82, 0.2)',
+                              'rgba(255, 200, 117, 0.2)',
+                              'rgba(246, 156, 92, 0.2)',
+                              'rgba(233, 111, 81, 0.2)',
+                              'rgba(222, 66, 91, 0.2)'
                           ],
                           borderColor: [
-                              'rgba(255, 99, 132, 1)',
-                              'rgba(54, 162, 235, 1)',
-                              'rgba(255, 206, 86, 1)',
-                              'rgba(75, 192, 192, 1)',
-                              'rgba(153, 102, 255, 1)',
-                              'rgba(255, 159, 64, 1)'
+                              'rgba(72, 143, 49, 1)',
+                              'rgba(139, 163, 58, 1)',
+                              'rgba(199, 182, 82, 1)',
+                              'rgba(255, 200, 117, 1)',
+                              'rgba(246, 156, 92, 1)',
+                              'rgba(233, 111, 81, 1)',
+                              'rgba(222, 66, 91, 1)'
                           ],
                           borderWidth: 1
                       }]
