@@ -15,7 +15,7 @@ exports.getHome = (req,res)=>{
             registros.forEach(registro=>{
                 data.push(registro.dataValues);
             });
-            console.log(data);
+            // console.log(data);
             res.render('userHome.html', {
             personas: data,
             nombre: req.session.username

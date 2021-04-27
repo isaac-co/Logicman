@@ -13,6 +13,8 @@ router.get('/login',homeController.getLogin);
 
 router.get('/relogin',homeController.getRelogin);
 
+router.get('/prueba',homeController.getPrueba);
+
 router.post('/addUser',homeController.postAddUser);
 
 router.post('/auth',homeController.postAuth);

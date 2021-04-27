@@ -21,10 +21,9 @@
       <hr>      
     </header>
     <br> <br>
-    <body>   
-      <!-- Container  -->
+    <body>
+      <%=equisde%>
       <div id="graphContainer" class="container" style="justify-content: space-around;">
-        <!-- First row -->
         <div class="row">
           <div class="col">
             <p> Género </p>
@@ -37,7 +36,7 @@
                     labels: ['Mujer', 'Hombre'],
                     datasets: [{
                         label: 'Número de personas por género',
-                        data: [12, 19],
+                        data: equisde,
                         backgroundColor: [
                             'rgba(255, 99, 132, 0.2)',
                             'rgba(54, 162, 235, 0.2)',
@@ -56,7 +55,7 @@
             </script>
           </div>
           <div class="col">
-            <p>Rango de edades</p>
+            <p>Gráfica 2</p>
             <canvas id="myChart2" width="300" height="300"></canvas>
             <script>
             const cty = document.getElementById('myChart2').getContext('2d');
@@ -167,8 +166,5 @@
             </div>
           </div>
         </div>
-
-      
-      <script type='text/javascript' src="/js/funciones.js""></script>
     </body>
 </html>

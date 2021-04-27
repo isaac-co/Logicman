@@ -25,6 +25,10 @@ exports.getRelogin = (req,res)=>{
     res.sendFile(path.join(__dirname,'..','views','relogin.html'));
 };
 
+exports.getPrueba = (req,res)=>{
+        res.sendFile(path.join(__dirname,'..','views','prueba.html'));
+};
+
 exports.postAddUser = (req,res)=>{
     let formulario = req.body;
        

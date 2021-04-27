@@ -5,7 +5,17 @@ const Usuario = sequelize.models.usuario;
 
 exports.getDashboard = function(req, res) {
 	if (req.session.loggedin) {
-		res.sendFile(path.join(__dirname,'..','views','adminDashboard.html'));
+		sequelize.query("CALL getGeneros();")
+        .then(registros=>{
+            var lol = [];
+            lol.push(registros[0].Mujeres);
+            lol.push(registros[0].Hombres);
+            console.log(lol);
+			var data = JSON.stringify(registros);
+			res.render('adminDashboard.html', {
+				equisde:lol
+			});
+        })
 	} else {
 		res.send('Please login to view this page!');
 	}
@@ -19,7 +29,7 @@ exports.getTablero = function(req, res) {
 			registros.forEach(registro=>{
 				data.push(registro.dataValues);
 			});
-			console.log(data);
+			// console.log(data);
 			res.render('adminTablero.html', {
 			personas:data,
 			sesion:"Autorizado",
