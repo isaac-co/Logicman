@@ -3,6 +3,7 @@ const Sequelize = require('sequelize');
 const sequelize = require('../util/database');
 const Usuario = sequelize.models.usuario;
 const Jugador = sequelize.models.jugador;
+const Sesion = sequelize.models.sesion;
 // DB
 const connection = require('../util/database');
 
@@ -84,24 +85,45 @@ exports.postVer = function(req, res) {
     });
 };
 
-exports.postActualizarJugador = (req,res)=>{
-    console.log(req.query);
+exports.postAgregarSesion = function(req,res) {
+
     let id;
-    Usuario.findOne({where: {email: req.query.usuario, userPassword: req.query.contra}})
+    Usuario.findOne({where: {email: req.body.usuario, userPassword: req.body.contra}})
+    .then(sesion=>
+    {
+        id = sesion.id;
+        res.send("confirmado");
+        Sesion.create({
+        idUsuario: id,
+        fechaInicio: req.body.datos1,
+        fechaSalida: req.body.datos2
+        
+    }).then(resultado=>console.log("Registro exitoso"))
+      .catch(error=>console.log(error));
+
+    });
+}
+
+exports.postActualizarJugador = function(req,res) {
+
+    let id;
+    Usuario.findOne({where: {email: req.body.usuario, userPassword: req.body.contra}})
     .then(user=>{
         id = user.id;
         Jugador.findByPk(id)
             .then(jugador=>
             {
-                jugador.skill1 = req.query.datos1;
-                jugador.skill2 = req.query.datos2;
-                jugador.skill3 = req.query.datos3;
+                jugador.skill1 = req.body.datos1;
+                jugador.skill2 = req.body.datos2;
+                jugador.skill3 = req.body.datos3;
                 return jugador && jugador.save();
+                res.send("confirmado")
             })
                 .then(resultado=>
                 {
-                    console.log("Datos guardadots")
-                    console.log(resultado)
+                    console.log("Datos guardadots");
+                    console.log(resultado);
+                    res.send("confirmado");
                 })
     });
 }

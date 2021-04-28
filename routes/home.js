@@ -23,4 +23,6 @@ router.post('/postVer', homeController.postVer);
 
 router.post('/postActualizarJugador', homeController.postActualizarJugador);
 
+router.post('/postAgregarSesion', homeController.postAgregarSesion);
+
 module.exports = router;
