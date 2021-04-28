@@ -33,7 +33,7 @@
                     <%personas.forEach((persona)=>{%>
                       <li>Lógica: <%=persona.skill1%></li>
                       <li>Creatividad: <%=persona.skill2%></li>
-                      <li>Innovación: <%=persona.skill3%></li>
+                      <li>Agilidad: <%=persona.skill3%></li>
                       <li>Puzzles resueltos: <%=persona.puzzles%></li>
                       <li>Horas jugadas: <%=persona.horasJugadas%></li>
                     <%});%>
@@ -50,7 +50,7 @@
                     new Chart(document.getElementById("radar-chart"), {
                         type: 'radar',
                         data: {
-                          labels: ["Lógica", "Creatividad", "Innovación"],
+                          labels: ["Lógica", "Creatividad", "Agilidad"],
                           datasets: [
                             {
                               label: "Aptitudes",
