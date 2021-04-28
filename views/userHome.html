@@ -29,7 +29,6 @@
             <p> Logicman está hecho para evaluar tus aptitues, puedes ver un resumen de lo que has conseguido hasta ahora aquí abajo.</p>
               <div class="row">
                 <div class="column">
-                  <h2 style="text-align: left;">Aquí están tus estadísticas</h2> <br>
                   <ul>
                     <%personas.forEach((persona)=>{%>
                       <li>Lógica: <%=persona.skill1%></li>
@@ -41,12 +40,11 @@
                   </ul>
                 </div>
                 <div class="column">
-                    <h2>Gráfica</h2> <br>
                     <canvas id="radar-chart" width="600" height="400"></canvas>
                     <script>
                     Chart.defaults.global.defaultFontColor = '#FFF';
                     Chart.defaults.scale.ticks.beginAtZero = true;
-                    Chart.defaults.scale.ticks.max = 10;
+                    // Chart.defaults.scale.ticks.max = 10;
                     Chart.defaults.scale.ticks.display = false;
                     Chart.defaults.scale.ticks.display = false;
                     new Chart(document.getElementById("radar-chart"), {
@@ -63,7 +61,7 @@
                               pointBorderColor: "#fff",
                               pointBackgroundColor: "#2e4259",
                               pointHoverRadius: 5,
-                              data: [7.6,5.6,8.7]
+                              data: [<%=skills%>]
                             }, 
                           ]
                         },
@@ -88,6 +86,5 @@
           </div>
         </div>
       </div>
-      <script type='text/javascript' src="/js/funciones.js""></script>
     </body>
 </html>
