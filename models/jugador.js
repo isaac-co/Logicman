@@ -9,7 +9,6 @@ const Jugador = (sequelize)=> {
         },
         username: {
             type: Sequelize.STRING(50),
-            primaryKey: true,
         },
         skill1: {
             type: Sequelize.FLOAT(),
